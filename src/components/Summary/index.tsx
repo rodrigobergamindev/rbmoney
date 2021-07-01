@@ -8,7 +8,7 @@ import {TransactionsContext} from '../../../src/TransactionsContext'
 
 export function Summary() {
 
-    const data = useContext(TransactionsContext)
+    const {transactions} = useContext(TransactionsContext)
 
    
 
