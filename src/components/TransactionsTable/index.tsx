@@ -1,10 +1,11 @@
 import { useContext} from "react";
+import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./styles";
-import {TransactionsContext} from '../../TransactionsContext'
+
 
 export function TransactionsTable() {
 
-    const {transactions} = useContext(TransactionsContext);
+    const {transactions} = useTransactions()
 
     return (
        <Container>
@@ -21,8 +22,9 @@ export function TransactionsTable() {
                <tbody>
                    
                    {transactions.map((transaction,index) => {
+                      
                        return (
-                           <tr key={index}>
+                           <tr key={transaction.id}>
                                <td>{transaction.title}</td>
                                <td className={transaction.type}>
                                    {new Intl.NumberFormat('pt-BR', {
